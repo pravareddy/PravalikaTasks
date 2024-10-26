@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Displaying movies">
+    <template lwc:if={movieList}>
+        <ul>
+          <template for:each={movieList} for:item="movie">
+            <li key={movie.Id}>
+                <a href={javascript:void(0);} target="_blank" onclick={() => openModal(movie.Title__c)}> {movie.Title__c}</a>
+            </li>
+          </template>  
+        </ul>
+    </template>
+    <c-modal-pop-up lwc:if={isModalOpen} movie-name={movieName} onclose={handleCloseModal}></c-modal-pop-up>
+</lightning-card>
+</template>

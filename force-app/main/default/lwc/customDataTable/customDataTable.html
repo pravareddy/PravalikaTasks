@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Display Contacts based on AccountId">
+        <template lwc:if={contactList}>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+             <tr>
+                <th class="slds-text-align_left">Name</th>
+                <th class="slds-text-align_left">Email</th>
+                <th class="slds-text-align_left">Phone</th>
+             </tr>
+            </thead>
+            <tbody>
+             <template for:each={contactList} for:item="con">
+              <tr key={Con.Id}>
+                <td>{con.Name}</td>
+                <td>{con.Email}</td>
+                <td>{con.Phone}</td>
+              </tr>
+             </template>
+            </tbody>
+        </table>
+        </template>
+        <template lwc:elseif={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>
